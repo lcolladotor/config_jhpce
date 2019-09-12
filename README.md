@@ -324,6 +324,8 @@ options(repos = c(CRAN = "https://cran.rstudio.com"))
 
 ## `ssh`
 
+My `~/.ssh/config` file:
+
 ```bash
 # For rmate
 Host compute*
