@@ -1,5 +1,10 @@
-# bashrc_jhpce
-My `~/.bashrc` file at JHPCE
+# JHPCE config files
+
+Here are some of my [JHPCE](https://jhpce.jhu.edu/) configuration files.
+
+## bashrc
+
+My `~/.bashrc` file:
 
 
 ```bash
@@ -131,6 +136,8 @@ export _JAVA_OPTIONS="-Xms5g -Xmx6g"
 
 ```
 
+## `input_rc`
+
 My `~/.input_rc` file:
 
 ```bash
@@ -141,6 +148,8 @@ My `~/.input_rc` file:
 $include /etc/inputrc
 
 ```
+
+## `sge_request`
 
 My `~/.sge_request` file:
 
@@ -159,5 +168,156 @@ My `~/.sge_request` file:
 # Define my email
 -M fellgernon@gmail.com
 # To get an email on a job use -m e
+
+```
+
+## `gitconfig`
+
+My `.gitconfig` file:
+
+```
+[user]
+	name = lcolladotor
+	email = lcollado@jhsph.edu
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[http]
+	sslVerify = false
+[core]
+	excludesfile = /users/lcollado/.gitignore_global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+```
+
+My `~/.gitignore_global` file:
+
+```
+*~
+
+## More at
+## https://help.github.com/articles/ignoring-files
+
+# R history #
+#############
+.Rapp.history
+.Rhistory
+
+# LaTeX stuff #
+###############
+*.aux
+*.out
+
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+```
+
+## `Rprofile`
+
+My `~/.Rprofile` file:
+
+```R
+## Fix libpath for R 3.1.x, R 3.2.x, R 3.3.x, R 3.4.x and R 3.5.x
+if(R.home() == "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.1.x/lib64/R") {
+    dir.create("~/R/x86_64-pc-linux-gnu-library/3.1.x", showWarnings=FALSE, recursive=TRUE)
+    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.1.x")
+    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.1.x", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.1.x/lib64/R/site-library", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3
+.1.x/lib64/R/library"))
+} else if (R.home() == "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.2.x/lib64/R") {
+    dir.create("~/R/x86_64-pc-linux-gnu-library/3.2.x", showWarnings=FALSE, recursive=TRUE)
+    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.2.x")
+    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.2.x", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.2.x/lib64/R/site-library", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3
+.2.x/lib64/R/library"))
+} else if (R.home() == '/jhpce/shared/community/compiler/gcc/4.4.7/R/3.3.x/lib64/R') {
+    dir.create("~/R/x86_64-pc-linux-gnu-library/3.3.x", showWarnings=FALSE, recursive=TRUE)
+    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.3.x")
+    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.3.x", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.3.x/lib64/R/site-library", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3
+.3.x/lib64/R/library"))
+} else if (R.home() == '/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.4.x/R/3.4.x/lib64/R') {
+    dir.create("~/R/x86_64-pc-linux-gnu-library/3.4.x", showWarnings=FALSE, recursive=TRUE)
+    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.4.x")
+    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.4.x", "/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.4.x/R/3.4.x/lib64/R/site-library", "/jhpce/shared/jhpce/core/conda
+/miniconda-3/envs/svnR-3.4.x/R/3.4.x/lib64/R/library"))
+} else if (R.home() == '/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.5.x/R/3.5.x/lib64/R') {
+    dir.create("~/R/x86_64-pc-linux-gnu-library/3.5.x", showWarnings=FALSE, recursive=TRUE)
+    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.5.x")
+    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.5.x", "/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.5.x/R/3.5.x/lib64/R/site-library", "/jhpce/shared/jhpce/core/conda
+/miniconda-3/envs/svnR-3.5.x/R/3.5.x/lib64/R/library"))
+}
+
+
+## Change colors
+# Source https://github.com/jalvesaq/colorout
+if(Sys.getenv('TERM') %in% c("term", "xterm-256color", "cygwin", "screen") & interactive()) {
+	installed <- require("colorout")
+	if(!installed) {
+		cat('devtools::install_github("jalvesaq/colorout")\n')
+	}
+	rm(installed)
+
+    ## rmote for images
+    # https://github.com/cloudyr/rmote
+    # https://community.rstudio.com/t/feature-request-send-plots-from-r-in-terminal-to-plots-pane/1877/3
+    installed <- require('rmote')
+    if(!installed) {
+        cat('install.packages("rmote", repos = c(CRAN = "http://cran.rstudio.com",
+  tessera = "http://packages.tessera.io"))')
+    } else {
+        start_rmote(port = _another_five_digit_number_, server_dir = paste0('/users/lcollado/rmote/rmote_server_', Sys.Date()))
+    }
+    rm(installed)
+}
+
+#library('fcuk')
+
+# https://bookdown.org/yihui/blogdown/global-options.html
+options(blogdown.author = 'L. Collado-Torres')
+options(blogdown.ext = '.Rmd')
+
+## https://blog.rstudio.com/2013/06/10/rstudio-cran-mirror/
+options(repos = c(CRAN = "https://cran.rstudio.com"))
 
 ```
