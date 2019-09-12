@@ -321,3 +321,24 @@ options(blogdown.ext = '.Rmd')
 options(repos = c(CRAN = "https://cran.rstudio.com"))
 
 ```
+
+## `ssh`
+
+```bash
+# For rmate
+Host compute*
+    RemoteForward _a_five_digit_number_ localhost:_a_five_digit_number_
+    LocalForward _another_five_digit_number_ localhost:_another_five_digit_number_
+
+# Default GitHub user
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+# Work user account
+Host bitbucket.org
+    HostName bitbucket.org
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+```
