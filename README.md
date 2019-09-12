@@ -2,7 +2,7 @@
 My `~/.bashrc` file at JHPCE
 
 
-```
+```bash
 # .bashrc
 
 # Source global definitions
@@ -133,11 +133,31 @@ export _JAVA_OPTIONS="-Xms5g -Xmx6g"
 
 My `~/.input_rc` file:
 
-```
+```bash
 #Page up/page down
 "\e[B": history-search-forward
 "\e[A": history-search-backward
 
 $include /etc/inputrc
+
+```
+
+My `~/.sge_request` file:
+
+```bash
+# Check http://www.biostat.jhsph.edu/bit/cluster-usage.html for more instructions
+#
+# Set defaults for mem_free and h_vmem
+-l mem_free=12G,h_vmem=12G
+#
+# Set the standard value for stack size limit
+# (needed for some programs to run properly when h_vmem is set)
+-l h_stack=512M
+#
+# Set a default maximum file size that an SGE job can create
+-l h_fsize=100G
+# Define my email
+-M fellgernon@gmail.com
+# To get an email on a job use -m e
 
 ```
