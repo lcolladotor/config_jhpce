@@ -120,7 +120,7 @@ export GITHUB_PAT="something_here"
 ## Load the git module by default when qrsh/qsub
 ## thanks to Jiong Yang
 if [[ $HOSTNAME == compute-* ]]; then
-    echo "Adding LIBD modules"a
+    echo "Adding LIBD modules"
     module use /jhpce/shared/jhpce/modulefiles/libd
     echo "Loading git"
     module load git
