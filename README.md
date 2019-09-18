@@ -260,35 +260,6 @@ Thumbs.db
 My `~/.Rprofile` file:
 
 ```R
-## Fix libpath for R 3.1.x, R 3.2.x, R 3.3.x, R 3.4.x and R 3.5.x
-if(R.home() == "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.1.x/lib64/R") {
-    dir.create("~/R/x86_64-pc-linux-gnu-library/3.1.x", showWarnings=FALSE, recursive=TRUE)
-    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.1.x")
-    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.1.x", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.1.x/lib64/R/site-library", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3
-.1.x/lib64/R/library"))
-} else if (R.home() == "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.2.x/lib64/R") {
-    dir.create("~/R/x86_64-pc-linux-gnu-library/3.2.x", showWarnings=FALSE, recursive=TRUE)
-    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.2.x")
-    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.2.x", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.2.x/lib64/R/site-library", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3
-.2.x/lib64/R/library"))
-} else if (R.home() == '/jhpce/shared/community/compiler/gcc/4.4.7/R/3.3.x/lib64/R') {
-    dir.create("~/R/x86_64-pc-linux-gnu-library/3.3.x", showWarnings=FALSE, recursive=TRUE)
-    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.3.x")
-    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.3.x", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3.3.x/lib64/R/site-library", "/jhpce/shared/community/compiler/gcc/4.4.7/R/3
-.3.x/lib64/R/library"))
-} else if (R.home() == '/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.4.x/R/3.4.x/lib64/R') {
-    dir.create("~/R/x86_64-pc-linux-gnu-library/3.4.x", showWarnings=FALSE, recursive=TRUE)
-    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.4.x")
-    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.4.x", "/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.4.x/R/3.4.x/lib64/R/site-library", "/jhpce/shared/jhpce/core/conda
-/miniconda-3/envs/svnR-3.4.x/R/3.4.x/lib64/R/library"))
-} else if (R.home() == '/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.5.x/R/3.5.x/lib64/R') {
-    dir.create("~/R/x86_64-pc-linux-gnu-library/3.5.x", showWarnings=FALSE, recursive=TRUE)
-    if(interactive()) message("Using the following user library: ~/R/x86_64-pc-linux-gnu-library/3.5.x")
-    .libPaths(c("~/R/x86_64-pc-linux-gnu-library/3.5.x", "/jhpce/shared/jhpce/core/conda/miniconda-3/envs/svnR-3.5.x/R/3.5.x/lib64/R/site-library", "/jhpce/shared/jhpce/core/conda
-/miniconda-3/envs/svnR-3.5.x/R/3.5.x/lib64/R/library"))
-}
-
-
 ## Change colors
 # Source https://github.com/jalvesaq/colorout
 if(Sys.getenv('TERM') %in% c("term", "xterm-256color", "cygwin", "screen") & interactive()) {
